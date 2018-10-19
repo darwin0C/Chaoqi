@@ -1,0 +1,499 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="超起电气检测系统"
+        android:textColor="#0000ff"
+        android:textSize="25sp" />
+    <TextView
+        android:id="@+id/textDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="超起电气检测系统"
+        android:textColor="#0000ff" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6px"
+        android:background="#0000ff" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:text="超起卷扬速度："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/suspeed1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="速度1" />
+
+        <Button
+            android:id="@+id/suspeed2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="速度2" />
+
+        <Button
+            android:id="@+id/suspeed3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="速度3" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:background="#f43ad3" />
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!--超起A-->
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起卷扬A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suAroalup"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起" />
+
+                        <Button
+                            android:id="@+id/suAroaldown"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起装置A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suAopen"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="展开" />
+
+                        <Button
+                            android:id="@+id/suAclose"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="收回" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="棘轮锁止油缸A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suAjlstretch"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="伸" />
+
+                        <Button
+                            android:id="@+id/suAjlretraction"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="缩" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+                </LinearLayout>
+                <!--超起B-->
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起卷扬B："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suBroalup"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起" />
+
+                        <Button
+                            android:id="@+id/suBroaldown"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起装置B："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suBopen"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="展开" />
+
+                        <Button
+                            android:id="@+id/suBclose"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="收回" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="棘轮锁止油缸B："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suBjlstretch"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="伸" />
+
+                        <Button
+                            android:id="@+id/suBjlretraction"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="缩" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+                </LinearLayout>
+                <!--超起其他动作-->
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起变幅："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suRangeUp"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起" />
+
+                        <Button
+                            android:id="@+id/suRangeDown"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起卷扬浮动："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suRoalFloat"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="动作" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="棘轮锁止油缸选择："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/sujlLockChoose"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="动作" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起锁止油缸压力："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suLockPress"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="动作" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起卷扬落压力："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/suRoalDownPress"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="动作" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="5dp"
+                        android:background="#f43ad3" />
+                </LinearLayout>
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+</LinearLayout>

@@ -1,0 +1,322 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:textColor="#0000ff"
+        android:text="超起电气检测系统3"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8px"
+        android:background="#0000ff"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="32dp"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="超起左拉力："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textleftpull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/holo_blue_light"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#ff0900"
+            android:text="B6A"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_pull" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="超起右拉力："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textrightpull"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B6B"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_pull" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="棘轮锁止缸A压力："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textlockpressA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B20"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_press" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="棘轮锁止缸B压力："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textlockpressB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B21"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_press" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="5dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="超起变幅角度："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textRangeAngle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B87"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_angle" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="超起左支架角度："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textLeftAngle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B90"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_angle" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="超起右支架角度："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textRightAngle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B91"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_angle" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+</LinearLayout>
