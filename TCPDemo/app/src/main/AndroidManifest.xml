@@ -9,6 +9,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
+        android:windowSoftInputMode="adjustPan"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -16,13 +18,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".funcs.FuncTcpClient"/>
-        <activity android:name=".funcs.FuncTcpServer"/>
-        <activity android:name=".funcs.FuncTest"/>
-        <activity android:name=".funcs.FuncDITest"/>
-        <activity android:name=".funcs.FuncAItest"/>
-        <activity android:name=".funcs.FuncWelcome"/>
-
+        <activity android:name=".funcs.FuncTcpClient"
+            android:screenOrientation="portrait" />
+        <activity android:name=".funcs.FuncTcpServer"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".funcs.FuncTest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".funcs.FuncDITest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".funcs.FuncAItest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".funcs.FuncRadioTest"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".funcs.FuncWelcome"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

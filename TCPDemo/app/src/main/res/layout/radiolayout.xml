@@ -7,14 +7,13 @@
     android:layout_marginLeft="5dp"
     android:layout_marginRight="5dp"
     tools:context=".MainActivity" >
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="25sp"
         android:textColor="#0000ff"
-        android:text="超起电气检测系统3"/>
+        android:text="射频器及编码器检测"/>
     <TextView
         android:id="@+id/textDemo"
         android:layout_width="wrap_content"
@@ -36,38 +35,34 @@
         android:orientation="horizontal">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="展开角度信号："
+            android:text="射频器单次检测："
             android:textColor="#ff0900"
             android:textSize="20sp" />
-
         <TextView
-            android:id="@+id/textleftpull"
+            android:id="@+id/textRaiodSingle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@android:color/holo_blue_light"
             android:text="                    "
             android:textColor="#ff0900"
-            android:textSize="20sp" />
-
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="#ff0900"
-            android:text="B90A"
+            android:text="B20"
             android:textColor="#ffffff"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:background="#ff0900"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_angle" />
-
+            android:src="@mipmap/ic_press" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -86,11 +81,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="拉紧信号："
+            android:text="射频器连续检测："
             android:textColor="#ff0900"
             android:textSize="20sp" />
         <TextView
-            android:id="@+id/textrightpull"
+            android:id="@+id/textRadioContinue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -102,103 +97,187 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="B21A"
+            android:text="B21"
             android:textColor="#ffffff"
             android:textSize="20sp"
             android:background="#ff0900"/>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_angle" />
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4px"
-        android:layout_marginTop="10dp"
-        android:background="#f43ad3" />
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="left"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="张紧缸测长信号："
-            android:textColor="#ff0900"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/textlockpressA"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="                    "
-            android:textColor="#ff0900"
-            android:textSize="20sp"
-            android:background="@android:color/holo_blue_light"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="B20A"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:background="#ff0900"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_angle" />
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="4px"
-        android:layout_marginTop="10dp"
-        android:background="#f43ad3" />
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:gravity="left"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="张紧缸压力信号："
-            android:textColor="#ff0900"
-            android:textSize="20sp" />
-        <TextView
-            android:id="@+id/textlockpressB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="                    "
-            android:textColor="#ff0900"
-            android:textSize="20sp"
-            android:background="@android:color/holo_blue_light"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="B23A"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:background="#ff0900"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_angle" />
+            android:src="@mipmap/ic_press" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="4px"
         android:layout_marginTop="5dp"
         android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="左超起卷扬编码器："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textLeftRoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B87"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_angle" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="左超起盘绳编码器："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textLeftRope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B87"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_angle" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="右超起卷扬编码器："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textRightRoll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B90"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_angle" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="left"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="右超起盘绳编码器："
+            android:textColor="#ff0900"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textRightRope"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="                    "
+            android:textColor="#ff0900"
+            android:textSize="20sp"
+            android:background="@android:color/holo_blue_light"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="B91"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="#ff0900"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_angle" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_marginTop="10dp"
+        android:background="#f43ad3" />
 </LinearLayout>

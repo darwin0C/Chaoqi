@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Message;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,7 +29,7 @@ public class FuncTcpClient extends Activity {
     private String TAG = "FuncTcpClient";
     @SuppressLint("StaticFieldLeak")
     public static Context context ;
-    private Button btnStartClient,btnCloseClient, btnCleanClientSend, btnCleanClientRcv,btnClientSend,btnClientRandom;
+    private Button btnStartClient,btnCloseClient, btnCleanClientSend, btnCleanClientRcv,btnClientSend;
     private TextView txtRcv,txtSend;
     private EditText editClientSend,editClientID, editClientPort,editClientIp;
     //private static TcpClient tcpClient = null;
@@ -37,7 +39,6 @@ public class FuncTcpClient extends Activity {
     ExecutorService exec = Executors.newCachedThreadPool();
 
     private class MyBtnClicker implements View.OnClickListener{
-
         @Override
         public void onClick(View view) {
             switch (view.getId()){
@@ -61,8 +62,6 @@ public class FuncTcpClient extends Activity {
                 case R.id.btn_tcpCleanClientSend:
                     txtSend.setText("");
                     break;
-                case R.id.btn_tcpClientRandomID:
-                    break;
                 case R.id.btn_tcpClientSend:
                     Message message = Message.obtain();
                     message.what = 2;
@@ -71,36 +70,82 @@ public class FuncTcpClient extends Activity {
                     exec.execute(new Runnable() {
                         @Override
                         public void run() {
-                            MainActivity.tcpClient.send(editClientSend.getText().toString());
+                            MainActivity.tcpClient.sendHex(toBytes(editClientSend.getText().toString()));
                         }
                     });
                     break;
             }
         }
     }
-
     private class MyHandler extends android.os.Handler{
         private WeakReference<FuncTcpClient> mActivity;
-
         MyHandler(FuncTcpClient activity){
             mActivity = new WeakReference<FuncTcpClient>(activity);
         }
-
         @Override
         public void handleMessage(Message msg) {
             if (mActivity != null){
                 switch (msg.what){
                     case 1:
-                        txtRcv.append(msg.obj.toString());
+                        txtRcv.append(msg.obj.toString()+"\r\n");
+                        //txtRcv.setMovementMethod(ScrollingMovementMethod.getInstance());
                         break;
                     case 2:
-                        txtSend.append(msg.obj.toString());
+                        txtSend.append(msg.obj.toString()+"\r\n");
+                        //txtSend.setMovementMethod(ScrollingMovementMethod.getInstance());
                         break;
                 }
             }
         }
     }
+    public static String strTo16(String s) {
+        String str = "";
+        for (int i = 0; i < s.length(); i++) {
+            int ch = (int) s.charAt(i);
+            String s4 = Integer.toHexString(ch);
+            str = str + s4;
+        }
+        return str;
+    }
+    /*
+     * 将16进制字符串转换为byte[]
+     *
+     * @param str
+     * @return
+     */
+    public static byte[] toBytes(String str) {
+        if(str == null || str.trim().equals("")) {
+            return new byte[0];
+        }
 
+        byte[] bytes = new byte[str.length() / 2];
+        for(int i = 0; i < str.length() / 2; i++) {
+            String subStr = str.substring(i * 2, i * 2 + 2);
+            bytes[i] = (byte) Integer.parseInt(subStr, 16);
+        }
+
+        return bytes;
+    }
+    /*
+     * 十六进制转换字符串
+     * @param String str Byte字符串(Byte之间无分隔符 如:[616C6B])
+     * @return String 对应的字符串
+     */
+    public static String hexStr2Str(String hexStr)
+    {
+        String str = "0123456789ABCDEF";
+        char[] hexs = hexStr.toCharArray();
+        byte[] bytes = new byte[hexStr.length() / 2];
+        int n;
+
+        for (int i = 0; i < bytes.length; i++)
+        {
+            n = str.indexOf(hexs[2 * i]) * 16;
+            n += str.indexOf(hexs[2 * i + 1]);
+            bytes[i] = (byte) (n & 0xff);
+        }
+        return new String(bytes);
+    }
     private class MyBroadcastReceiver extends BroadcastReceiver{
 
         @Override
@@ -140,7 +185,7 @@ public class FuncTcpClient extends Activity {
         btnCloseClient = (Button) findViewById(R.id.btn_tcpClientClose);
         btnCleanClientRcv = (Button) findViewById(R.id.btn_tcpCleanClientRecv);
         btnCleanClientSend = (Button) findViewById(R.id.btn_tcpCleanClientSend);
-        btnClientRandom = (Button) findViewById(R.id.btn_tcpClientRandomID);
+       // btnClientRandom = (Button) findViewById(R.id.btn_tcpClientRandomID);
         btnClientSend = (Button) findViewById(R.id.btn_tcpClientSend);
         editClientPort = (EditText) findViewById(R.id.edit_tcpClientPort);
         editClientIp = (EditText) findViewById(R.id.edit_tcpClientIp);
@@ -153,7 +198,7 @@ public class FuncTcpClient extends Activity {
         btnCloseClient.setOnClickListener(myBtnClicker);
         btnCleanClientRcv.setOnClickListener(myBtnClicker);
         btnCleanClientSend.setOnClickListener(myBtnClicker);
-        btnClientRandom.setOnClickListener(myBtnClicker);
+        //btnClientRandom.setOnClickListener(myBtnClicker);
         btnClientSend.setOnClickListener(myBtnClicker);
     }
     private void bindReceiver(){
@@ -162,6 +207,13 @@ public class FuncTcpClient extends Activity {
     }
     private void Ini(){
         btnCloseClient.setEnabled(false);
+        txtRcv.setMovementMethod(new ScrollingMovementMethod(){
+        });
+        txtSend.setMovementMethod(new ScrollingMovementMethod(){
+        });
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
        // btnClientSend.setEnabled(false);
     }
+
 }

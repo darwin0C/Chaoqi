@@ -28,13 +28,15 @@ import jason.tcpdemo.MainActivity;
  * Created by Chao on 2018-03-14.
  */
 
-public class FuncTest extends Activity {
+public class
+FuncTest extends Activity {
     private String TAG = "FuncTest";
     public static Context context ;
-    private Button btnsuARoalUP,btnsuARoalDown,btnsuAopen,btnsuAClose,btnsuALockOut,btnsuALockIn;
-    private Button btnsuBRoalUP,btnsuBRoalDown,btnsuBopen,btnsuBClose,btnsuBLockOut,btnsuBLockIn;
-    private Button btnsuRangeUp,btnsuRangeDown,btnsuRoalFloat,btnsuLockChoose,btnsuLockPress,btnsuRoalDownPress;
-    private Button btnRoalSpeed1,btnRoalSpeed2,btnRoalSpeed3;
+    private Button Y25a1,Y24b1,Y24a1,Y39b1,Y39a1,Y40b1,Y40a1,Y28b1,Y28a1,Y43b1,Y43a1,Y42b1,Y42a1;
+    private Button Y25a2,Y24b2,Y24a2,Y39b2,Y39a2,Y40b2,Y40a2,Y28b2,Y28a2,Y43b2,Y43a2,Y42b2,Y42a2;
+    private Button Y45b1,Y45a1,Y41a1,Y29a1,Y50c1,Y44a1;
+
+    private Button btnRoalSpeed1;
     private TextView textDemotest;
     private String strMessage;
     private FuncTest.MyBtnClicker myBtnClicker = new FuncTest.MyBtnClicker();
@@ -76,7 +78,9 @@ public class FuncTest extends Activity {
                 switch (msg.what){
                     case 1:
                         //txtRcv.append(msg.obj.toString());
-                        textDemotest.setText(msg.obj.toString());
+                        String strShow=msg.obj.toString();
+                        if(strShow.length()<20)
+                        textDemotest.setText("连接成功！");
                         break;
                     case 2:
                         //txtSend.append(msg.obj.toString());
@@ -84,6 +88,15 @@ public class FuncTest extends Activity {
                 }
             }
         }
+    }
+    public static String strTo16(String s) {
+        String str = "";
+        for (int i = 0; i < s.length(); i++) {
+            int ch = (int) s.charAt(i);
+            String s4 = Integer.toHexString(ch);
+            str = str + s4;
+        }
+        return str;
     }
     private class MyBroadcastReceiver extends BroadcastReceiver {
 
@@ -108,135 +121,315 @@ public class FuncTest extends Activity {
     private class MyBtnClicker implements View.OnClickListener{
         public void onClick(View view) {
             Toast toast=null;
+            byte[] bytesSend=new byte[7];
+            bytesSend[0]=(byte)0xfe;
+            bytesSend[1]=(byte)0x02;
+
+                    //{(byte)0xfe,(byte)0x02,(byte)0xff,(byte)0xff,(byte)0xff};
             switch (view.getId()){
+
              case R.id.btn_tcpClientConn:
                 Log.i(TAG, "onClick: 开始");
-
                 break;
-                //卷扬速度
+                //复位
                 case R.id.suspeed1:
-                    SendMessage("speed1");
-                    toast=Toast.makeText(getApplicationContext(),"速度1",Toast.LENGTH_LONG);
-                     break;
-                case R.id.suspeed2:
-                    SendMessage("speed2");
-                    toast=Toast.makeText(getApplicationContext(),"速度2",Toast.LENGTH_LONG);
-                    break;
-                case R.id.suspeed3:
-                    SendMessage("speed3");
-                    toast=Toast.makeText(getApplicationContext(),"速度3",Toast.LENGTH_LONG);
+                    //SendMessage("suAroalup");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"复位",Toast.LENGTH_LONG);
                     break;
                 //超起A
-                case R.id.suAroalup:
-                    SendMessage("suAroalup");
-                    toast=Toast.makeText(getApplicationContext(),"卷扬A起",Toast.LENGTH_LONG);
+                case R.id.Y45b1:
+                    //SendMessage("suAroalup");
+                    bytesSend[2]=(byte)0x80;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y45b1",Toast.LENGTH_LONG);
                      break;
-                case R.id.suAroaldown:
-                    SendMessage("suAroaldown");
-                    toast=Toast.makeText(getApplicationContext(),"卷扬A落",Toast.LENGTH_LONG);
+                case R.id.Y45a1:
+                    //SendMessage("suAroaldown");
+                    bytesSend[2]=(byte)0x40;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y45a1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suAopen:
-                    SendMessage("suAopen");
-                    toast=Toast.makeText(getApplicationContext(),"超起装置A展开",Toast.LENGTH_LONG);
+                case R.id.Y25a1:
+                    //SendMessage("suAopen");
+                    bytesSend[2]=(byte)0x20;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y25a1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suAclose:
-                    SendMessage("suAclose");
-                    toast=Toast.makeText(getApplicationContext(),"超起装置A收回",Toast.LENGTH_LONG);
+                case R.id.Y24b1:
+                    //SendMessage("suAclose");
+                    bytesSend[2]=(byte)0x08;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y24b1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suAjlstretch:
-                    SendMessage("suAjlstretch");
-                    toast=Toast.makeText(getApplicationContext(),"棘轮锁止油缸A伸",Toast.LENGTH_LONG);
+                case R.id.Y24a1:
+                    //SendMessage("suAjlstretch");
+                    bytesSend[2]=(byte)0x04;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y24a1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suAjlretraction:
-                    SendMessage("suAjlretraction");
-                    toast=Toast.makeText(getApplicationContext(),"棘轮锁止油缸A缩",Toast.LENGTH_LONG);
+                case R.id.Y41a1:
+                    //SendMessage("suAjlretraction");
+                    bytesSend[2]=(byte)0x02;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y41a1",Toast.LENGTH_LONG);
                     break;
-                //超起B
-                case R.id.suBroalup:
-                    SendMessage("suBroalup");
+                case R.id.Y39b1:
+                    //SendMessage("suAroalup");
+                    bytesSend[2]=(byte)0x01;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y39b1",Toast.LENGTH_LONG);
+                    break;
+
+                case R.id.Y39a1:
+                    //SendMessage("suAroaldown");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x80;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y39a1",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y40b1:
+                    //SendMessage("suAopen");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x40;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y40b1",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y40a1:
+                    //SendMessage("suAclose");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x20;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y40a1",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y29a1:
+                    //SendMessage("suAjlstretch");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x10;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y29a1",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y28b1:
+                    //SendMessage("suAjlretraction");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x08;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y28b1",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y28a1:
+                    //SendMessage("suAjlretraction");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x04;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y28a1",Toast.LENGTH_LONG);
+                    break;
+
+                case R.id.Y43b1:
+                    //SendMessage("suBroalup");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x02;
+                    bytesSend[4]=(byte)0x00;
                     toast=Toast.makeText(getApplicationContext(),"卷扬B起",Toast.LENGTH_LONG);
                     break;
-                case R.id.suBroaldown:
-                    SendMessage("suBroaldown");
-                    toast=Toast.makeText(getApplicationContext(),"卷扬B落",Toast.LENGTH_LONG);
+                case R.id.Y43a1:
+                    //SendMessage("suBroaldown");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x01;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y43a1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suBopen:
-                    SendMessage("suBopen");
-                    toast=Toast.makeText(getApplicationContext(),"超起装置B展开",Toast.LENGTH_LONG);
+
+                case R.id.Y42b1:
+                    //SendMessage("suBopen");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x80;
+                    toast=Toast.makeText(getApplicationContext(),"Y42b1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suBclose:
-                    SendMessage("suBclose");
-                    toast=Toast.makeText(getApplicationContext(),"超起装置B收回",Toast.LENGTH_LONG);
+                case R.id.Y42a1:
+                    //SendMessage("suBclose");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x40;
+                    toast=Toast.makeText(getApplicationContext(),"Y42a1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suBjlstretch:
-                    SendMessage("suBjlstretch");
-                    toast=Toast.makeText(getApplicationContext(),"棘轮锁止油缸B伸",Toast.LENGTH_LONG);
+                case R.id.Y50c1:
+                    //SendMessage("suBjlstretch");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x20;
+                    toast=Toast.makeText(getApplicationContext(),"Y50c1",Toast.LENGTH_LONG);
                     break;
-                case R.id.suBjlretraction:
-                    SendMessage("suBjlretraction");
-                    toast=Toast.makeText(getApplicationContext(),"棘轮锁止油缸B缩",Toast.LENGTH_LONG);
+                case R.id.Y44a1:
+                    //SendMessage("suBjlretraction");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x10;
+                    toast=Toast.makeText(getApplicationContext(),"Y44a1",Toast.LENGTH_LONG);
                 break;
-                //超起其他动作
-                case R.id.suRangeUp:
-                    SendMessage("suRangeUp");
-                    toast=Toast.makeText(getApplicationContext(),"超起变幅起",Toast.LENGTH_LONG);
+                //超起B
+                case R.id.Y25a2:
+                    //SendMessage("suRangeUp");
+                    bytesSend[2]=(byte)0x20;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y25a2",Toast.LENGTH_LONG);
                      break;
-                case R.id.suRangeDown:
-                    SendMessage("suRangeDown");
-                    toast=Toast.makeText(getApplicationContext(),"超起变幅落",Toast.LENGTH_LONG);
+                case R.id.Y24b2:
+                    //SendMessage("suRangeDown");
+                    bytesSend[2]=(byte)0x08;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y24b2",Toast.LENGTH_LONG);
                     break;
-                case R.id.suRoalFloat:
-                    SendMessage("suRoalFloat");
-                    toast=Toast.makeText(getApplicationContext(),"超起卷扬浮动",Toast.LENGTH_LONG);
+                case R.id.Y24a2:
+                    //SendMessage("suRoalFloat");
+                    bytesSend[2]=(byte)0x04;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y24a2",Toast.LENGTH_LONG);
                     break;
-                case R.id.sujlLockChoose:
-                    SendMessage("sujlLockChoose");
-                    toast=Toast.makeText(getApplicationContext(),"棘轮锁止油缸选择",Toast.LENGTH_LONG);
+                case R.id.Y39b2:
+                    //SendMessage("sujlLockChoose");
+                    bytesSend[2]=(byte)0x01;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y39b2",Toast.LENGTH_LONG);
                     break;
-                case R.id.suLockPress:
-                    SendMessage("suLockPress");
-                    toast=Toast.makeText(getApplicationContext(),"棘轮锁止油缸压力",Toast.LENGTH_LONG);
+
+                case R.id.Y39a2:
+                    //SendMessage("suLockPress");
+                    bytesSend[2]=(byte)0x01;
+                    bytesSend[3]=(byte)0x80;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y39a2",Toast.LENGTH_LONG);
                     break;
-                case R.id.suRoalDownPress:
-                    SendMessage("suRoalDownPress");
-                    toast=Toast.makeText(getApplicationContext(),"超起卷扬落压力",Toast.LENGTH_LONG);
+                case R.id.Y40b2:
+                    //SendMessage("suRoalDownPress");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x40;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y40b2",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y40a2:
+                    //SendMessage("suRangeUp");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x20;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y40a2",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y28b2:
+                    //SendMessage("suRangeDown");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x08;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y28b2",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y28a2:
+                    //SendMessage("suRoalFloat");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x04;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y28a2",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y43b2:
+                    //SendMessage("sujlLockChoose");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x02;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y43b2",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y43a2:
+                    //SendMessage("suLockPress");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x01;
+                    bytesSend[4]=(byte)0x00;
+                    toast=Toast.makeText(getApplicationContext(),"Y43a2",Toast.LENGTH_LONG);
+                    break;
+
+                case R.id.Y42b2:
+                    //SendMessage("suRoalDownPress");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x80;
+                    toast=Toast.makeText(getApplicationContext(),"Y42b2",Toast.LENGTH_LONG);
+                    break;
+                case R.id.Y42a2:
+                    //SendMessage("suRoalDownPress");
+                    bytesSend[2]=(byte)0x00;
+                    bytesSend[3]=(byte)0x00;
+                    bytesSend[4]=(byte)0x40;
+                    toast=Toast.makeText(getApplicationContext(),"Y42a2",Toast.LENGTH_LONG);
                     break;
             }
+            bytesSend[5]=(byte)0x0d;
+            bytesSend[6]=(byte)0x0a;
+            SendHexMessage(bytesSend);
             showMyToast(toast,1000);
         }
     }
     private void bindID(){
         //卷扬速度 btnRoalSpeed1,btnRoalSpeed2,btnRoalSpeed3;
         btnRoalSpeed1 = (Button) findViewById(R.id.suspeed1);
-        btnRoalSpeed2 = (Button) findViewById(R.id.suspeed2);
-        btnRoalSpeed3 = (Button) findViewById(R.id.suspeed3);
-
         //btnsuARoalUP,btnsuARoalDown,btnsuAopen, btnsuAClose,btnsuALockOut,btnsuALockIn;
+        //Y25a1,Y24b1,Y24a1,
         //超起A
-        btnsuARoalUP = (Button) findViewById(R.id.suAroalup);
-        btnsuARoalDown = (Button) findViewById(R.id.suAroaldown);
-        btnsuAopen = (Button) findViewById(R.id.suAopen);
-
-        btnsuAClose = (Button) findViewById(R.id.suAclose);
-        btnsuALockOut = (Button) findViewById(R.id.suAjlstretch);
-        btnsuALockIn = (Button) findViewById(R.id.suAjlretraction);
+        Y25a1 = (Button) findViewById(R.id.Y25a1);
+        Y24b1 = (Button) findViewById(R.id.Y24b1);
+        Y24a1 = (Button) findViewById(R.id.Y24a1);
+        // Y39b1,Y39a1,Y40b1,
+        Y39b1 = (Button) findViewById(R.id.Y39b1);
+        Y39a1 = (Button) findViewById(R.id.Y39a1);
+        Y40b1 = (Button) findViewById(R.id.Y40b1);
+        // Y40a1,Y28b1,Y28a1,
+        Y40a1 = (Button) findViewById(R.id.Y40a1);
+        Y28b1 = (Button) findViewById(R.id.Y28b1);
+        Y28a1 = (Button) findViewById(R.id.Y28a1);
+        // Y43b1,Y43a1,Y42b1,Y42a1;
+        Y43b1 = (Button) findViewById(R.id.Y43b1);
+        Y43a1 = (Button) findViewById(R.id.Y43a1);
+        Y42b1 = (Button) findViewById(R.id.Y42b1);
+        Y42a1 = (Button) findViewById(R.id.Y42a1);
         //btnsuBRoalUP,btnsuBRoalDown,btnsuBopen,btnsuBClose,btnsuBLockOut,btnsuBLockIn;
+
         //超起B
-        btnsuBRoalUP = (Button) findViewById(R.id.suBroalup);
-        btnsuBRoalDown = (Button) findViewById(R.id.suBroaldown);
-        btnsuBopen = (Button) findViewById(R.id.suBopen);
-        btnsuBClose = (Button) findViewById(R.id.suBclose);
-        btnsuBLockOut = (Button) findViewById(R.id.suBjlstretch);
-        btnsuBLockIn = (Button) findViewById(R.id.suBjlretraction);
+        //Y25a2,Y24b2,Y24a2,
+        Y25a2 = (Button) findViewById(R.id.Y25a2);
+        Y24b2 = (Button) findViewById(R.id.Y24b2);
+        Y24a2 = (Button) findViewById(R.id.Y24a2);
+        // Y39b2,Y39a2,Y40b2,
+        Y39b2 = (Button) findViewById(R.id.Y39b2);
+        Y39a2 = (Button) findViewById(R.id.Y39a2);
+        Y40b2 = (Button) findViewById(R.id.Y40b2);
+        // Y40a2,Y28b2,Y28a2,
+        Y40a2 = (Button) findViewById(R.id.Y40a2);
+        Y28b2 = (Button) findViewById(R.id.Y28b2);
+        Y28a2 = (Button) findViewById(R.id.Y28a2);
+        // Y43b2,Y43a2,Y42b2,Y42a2;
+        Y43b2 = (Button) findViewById(R.id.Y43b2);
+        Y43a2 = (Button) findViewById(R.id.Y43a2);
+        Y42b2 = (Button) findViewById(R.id.Y42b2);
+        Y42a2 = (Button) findViewById(R.id.Y42a2);
         //超起其他动作
         //btnsuRangeUp,btnsuRangeDown,btnsuRoalFloat,  btnsuLockChoose,btnsuLockPress,btnsuRoalDownPress;
-        btnsuRangeUp = (Button) findViewById(R.id.suRangeUp);
-        btnsuRangeDown = (Button) findViewById(R.id.suRangeDown);
-        btnsuRoalFloat = (Button) findViewById(R.id.suRoalFloat);
+        // Y45b1,Y45a1,Y41a1,
+        // Y29a1,Y50c1,Y44a1;
+        Y45b1 = (Button) findViewById(R.id.Y45b1);
+        Y45a1 = (Button) findViewById(R.id.Y45a1);
+        Y41a1 = (Button) findViewById(R.id.Y41a1);
 
-        btnsuLockChoose = (Button) findViewById(R.id.sujlLockChoose);
-        btnsuLockPress = (Button) findViewById(R.id.suLockPress);
-        btnsuRoalDownPress = (Button) findViewById(R.id.suRoalDownPress);
+        Y29a1 = (Button) findViewById(R.id.Y29a1);
+        Y50c1 = (Button) findViewById(R.id.Y50c1);
+        Y44a1 = (Button) findViewById(R.id.Y44a1);
 
         textDemotest=(TextView)findViewById(R.id.textDemo);
     }
@@ -245,36 +438,55 @@ public class FuncTest extends Activity {
        // btnStartClient.setOnClickListener(myBtnClicker);
         //卷扬速度 btnRoalSpeed1,btnRoalSpeed2,btnRoalSpeed3;
         btnRoalSpeed1.setOnClickListener(myBtnClicker);
-        btnRoalSpeed2.setOnClickListener(myBtnClicker);
-        btnRoalSpeed3.setOnClickListener(myBtnClicker);
         //btnsuARoalUP,btnsuARoalDown,btnsuAopen, btnsuAClose,btnsuALockOut,btnsuALockIn;
         //超起A
-        btnsuARoalUP.setOnClickListener(myBtnClicker);
-        btnsuARoalDown.setOnClickListener(myBtnClicker);
-        btnsuAopen.setOnClickListener(myBtnClicker);
+        Y25a1.setOnClickListener(myBtnClicker);
+        Y24b1.setOnClickListener(myBtnClicker);
+        Y24a1.setOnClickListener(myBtnClicker);
+        Y39b1.setOnClickListener(myBtnClicker);
+        Y39a1.setOnClickListener(myBtnClicker);
+        Y40b1.setOnClickListener(myBtnClicker);
+        Y40a1.setOnClickListener(myBtnClicker);
+        Y28b1.setOnClickListener(myBtnClicker);
+        Y28a1.setOnClickListener(myBtnClicker);
+        Y43b1.setOnClickListener(myBtnClicker);
+        Y43a1.setOnClickListener(myBtnClicker);
+        Y42b1.setOnClickListener(myBtnClicker);
+        Y42a1.setOnClickListener(myBtnClicker);
 
-        btnsuAClose.setOnClickListener(myBtnClicker);
-        btnsuALockOut.setOnClickListener(myBtnClicker);
-        btnsuALockIn.setOnClickListener(myBtnClicker);
         //btnsuBRoalUP,btnsuBRoalDown,btnsuBopen,btnsuBClose,btnsuBLockOut,btnsuBLockIn;
-        //超起B
-        btnsuBRoalUP.setOnClickListener(myBtnClicker);
-        btnsuBRoalDown.setOnClickListener(myBtnClicker);
-        btnsuBopen.setOnClickListener(myBtnClicker);
+        //Y25a2,Y24b2,Y24a2,
+        // Y39b2,Y39a2,Y40b2,
 
-        btnsuBClose.setOnClickListener(myBtnClicker);
-        btnsuBLockOut.setOnClickListener(myBtnClicker);
-        btnsuBLockIn.setOnClickListener(myBtnClicker);
+        //超起B
+        Y25a2.setOnClickListener(myBtnClicker);
+        Y24b2.setOnClickListener(myBtnClicker);
+        Y24a2.setOnClickListener(myBtnClicker);
+
+        Y39b2.setOnClickListener(myBtnClicker);
+        Y39a2.setOnClickListener(myBtnClicker);
+        Y40b2.setOnClickListener(myBtnClicker);
+        // Y40a2,Y28b2,Y28a2,
+        // Y43b2,Y43a2,Y42b2,Y42a2;
+        Y40a2.setOnClickListener(myBtnClicker);
+        Y28b2.setOnClickListener(myBtnClicker);
+        Y28a2.setOnClickListener(myBtnClicker);
+
+        Y43b2.setOnClickListener(myBtnClicker);
+        Y43a2.setOnClickListener(myBtnClicker);
+        Y42b2.setOnClickListener(myBtnClicker);
+        Y42a2.setOnClickListener(myBtnClicker);
         //超起其他动作
         //btnsuRangeUp,btnsuRangeDown,btnsuRoalFloat,  btnsuLockChoose,btnsuLockPress,btnsuRoalDownPress;
-        btnsuRangeUp.setOnClickListener(myBtnClicker);
-        btnsuRangeDown.setOnClickListener(myBtnClicker);
-        btnsuRoalFloat.setOnClickListener(myBtnClicker);
+        //Y45b1,Y45a1,Y41a1,
+        // Y29a1,Y50c1,Y44a1;
+        Y45b1.setOnClickListener(myBtnClicker);
+        Y45a1.setOnClickListener(myBtnClicker);
+        Y41a1.setOnClickListener(myBtnClicker);
 
-        btnsuLockChoose.setOnClickListener(myBtnClicker);
-        btnsuLockPress.setOnClickListener(myBtnClicker);
-        btnsuRoalDownPress.setOnClickListener(myBtnClicker);
-
+        Y29a1.setOnClickListener(myBtnClicker);
+        Y50c1.setOnClickListener(myBtnClicker);
+        Y44a1.setOnClickListener(myBtnClicker);
     }
 
     public void showMyToast(final Toast toast,final int cnt)
@@ -307,5 +519,21 @@ public class FuncTest extends Activity {
                 MainActivity.tcpClient.send(strMessage);
             }
         });
+    }
+    private void SendHexMessage(byte[] bytestosend)
+    {
+        try {
+            final byte[] bb = bytestosend;
+            exec.execute(new Runnable() {
+                @Override
+                public void run() {
+                    MainActivity.tcpClient.sendHex(bb);
+                }
+            });
+        }
+        catch (Exception e)
+        {
+            textDemotest.setText("连接失败！");
+        }
     }
 }

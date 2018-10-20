@@ -19,10 +19,10 @@ import java.util.concurrent.Executors;
 
 import jason.tcpdemo.coms.TcpClient;
 import jason.tcpdemo.funcs.FuncDITest;
+import jason.tcpdemo.funcs.FuncRadioTest;
 import jason.tcpdemo.funcs.FuncTcpClient;
 import jason.tcpdemo.funcs.FuncTcpServer;
 import jason.tcpdemo.funcs.FuncTest;
-import jason.tcpdemo.funcs.FuncDITest;
 import jason.tcpdemo.funcs.FuncAItest;
 import jason.tcpdemo.funcs.FuncWelcome;
 
@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 
     private RadioButton radioBtnServer, radioBtnClient;
     private Button btnFuncEnsure;
-    private Button btntest, btnDItest, btnAItest;
+    private Button btntest, btnDItest, btnAItest,btnRadiotest;
     private Button btnConnect, btnDisConnect;
     private EditText editClientIp, editClientPort;
     private TextView txtShowFunc;
@@ -53,7 +53,6 @@ public class MainActivity extends Activity {
                 case R.id.radio_Client:
                     if (b) {
                         txtShowFunc.setText("你选则的功能是：客户端");
-
                     }
                     break;
             }
@@ -69,8 +68,8 @@ public class MainActivity extends Activity {
                 case R.id.btn_FunctionEnsure:
 
                     if (radioBtnServer.isChecked()) {
-                        intent.setClass(MainActivity.this, FuncTcpServer.class);
-                        startActivity(intent);
+                        //intent.setClass(MainActivity.this, FuncTcpServer.class);
+                        //startActivity(intent);
                     }
                     if (radioBtnClient.isChecked()) {
                         nflag = 1;
@@ -93,6 +92,12 @@ public class MainActivity extends Activity {
                 case R.id.btn_AITest: {
                     nflag = 4;
                     intent.setClass(MainActivity.this, FuncAItest.class);
+                    startActivity(intent);
+                }
+                break;
+                case R.id.btn_RadioTest: {
+                    nflag = 5;
+                    intent.setClass(MainActivity.this, FuncRadioTest.class);
                     startActivity(intent);
                 }
                 break;
@@ -123,11 +128,9 @@ public class MainActivity extends Activity {
         //setContentView(R.layout.welcomelayout);
 
         setContentView(R.layout.function);
-
         bindID();
         bindListener();
         Ini();
-
     }
 
     private int getPort(String msg) {
@@ -144,6 +147,7 @@ public class MainActivity extends Activity {
         btntest = (Button) findViewById(R.id.btn_Test);
         btnDItest = (Button) findViewById(R.id.btn_DITest);
         btnAItest = (Button) findViewById(R.id.btn_AITest);
+        btnRadiotest=(Button) findViewById(R.id.btn_RadioTest);//
         // btnConnect,btnDisConnect
         btnConnect = (Button) findViewById(R.id.btn_tcpClientConnect);
         btnDisConnect = (Button) findViewById(R.id.btn_tcpClientDisConnect);
@@ -160,6 +164,8 @@ public class MainActivity extends Activity {
         btntest.setOnClickListener(myButtonClick);
         btnDItest.setOnClickListener(myButtonClick);
         btnAItest.setOnClickListener(myButtonClick);
+        btnRadiotest.setOnClickListener(myButtonClick);
+        btnRadiotest.setOnClickListener(myButtonClick);
 
         btnConnect.setOnClickListener(myButtonClick);
         btnDisConnect.setOnClickListener(myButtonClick);

@@ -35,10 +35,11 @@ import jason.tcpdemo.MainActivity;
 public class FuncDITest extends Activity {
     private String TAG = "FuncDITest";
     private TextView textAtest;
+    private TextView textDemotest;
     public static Context context;
 
-    private ImageView ivs77ayes, ivs77ano, ivs78ayes, ivs78ano, ivs81ayes, ivs81ano, ivs82ayes, ivs82ano, ivs83ayes, ivs83ano;
-    private ImageView ivs77byes, ivs77bno, ivs78byes, ivs78bno, ivs81byes, ivs81bno, ivs82byes, ivs82bno, ivs83byes, ivs83bno;
+    private ImageView ivs77ayes, ivs77ano, ivs78ayes, ivs78ano, ivs79ayes, ivs79ano, ivs80ayes, ivs80ano;
+    private ImageView ivs77byes, ivs77bno, ivs78byes, ivs78bno, ivs79byes, ivs79bno, ivs80byes, ivs80bno;
     private final MyHandler myHandler = new MyHandler(this);
     private MyBroadcastReceiver myBroadcastReceiver = new FuncDITest.MyBroadcastReceiver();
     ExecutorService exec = Executors.newCachedThreadPool();
@@ -80,6 +81,7 @@ public class FuncDITest extends Activity {
                     case 1:
                         //txtRcv.append(msg.obj.toString());
                         //textAtest.setText(msg.obj.toString());
+                        textDemotest.setText(msg.obj.toString());
                         processMessage(msg.obj.toString());
                         break;
                     case 2:
@@ -127,14 +129,12 @@ public class FuncDITest extends Activity {
         ivs78ayes = (ImageView) findViewById(R.id.s78ayes);
         ivs78ano = (ImageView) findViewById(R.id.s78ano);
 
-        ivs81ayes = (ImageView) findViewById(R.id.s81ayes);
-        ivs81ano = (ImageView) findViewById(R.id.s81ano);
+        ivs79ayes = (ImageView) findViewById(R.id.s81ayes);
+        ivs79ano = (ImageView) findViewById(R.id.s81ano);
 
-        ivs82ayes = (ImageView) findViewById(R.id.s82ayes);
-        ivs82ano = (ImageView) findViewById(R.id.s82ano);
+        ivs80ayes = (ImageView) findViewById(R.id.s82ayes);
+        ivs80ano = (ImageView) findViewById(R.id.s82ano);
 
-        ivs83ayes = (ImageView) findViewById(R.id.s83ayes);
-        ivs83ano = (ImageView) findViewById(R.id.s83ano);
         //超起B
         ivs77byes = (ImageView) findViewById(R.id.s77byes);
         ivs77bno = (ImageView) findViewById(R.id.s77bno);
@@ -142,14 +142,13 @@ public class FuncDITest extends Activity {
         ivs78byes = (ImageView) findViewById(R.id.s78byes);
         ivs78bno = (ImageView) findViewById(R.id.s78bno);
 
-        ivs81byes = (ImageView) findViewById(R.id.s81byes);
-        ivs81bno = (ImageView) findViewById(R.id.s81bno);
+        ivs79byes = (ImageView) findViewById(R.id.s81byes);
+        ivs79bno = (ImageView) findViewById(R.id.s81bno);
 
-        ivs82byes = (ImageView) findViewById(R.id.s82byes);
-        ivs82bno = (ImageView) findViewById(R.id.s82bno);
+        ivs80byes = (ImageView) findViewById(R.id.s82byes);
+        ivs80bno = (ImageView) findViewById(R.id.s82bno);
 
-        ivs83byes = (ImageView) findViewById(R.id.s83byes);
-        ivs83bno = (ImageView) findViewById(R.id.s83bno);
+        textDemotest=(TextView)findViewById(R.id.textDemo);
 
     }
 
@@ -165,23 +164,151 @@ public class FuncDITest extends Activity {
     private void imagehide() {
         ivs77ayes.setVisibility(View.INVISIBLE);
         ivs78ayes.setVisibility(View.INVISIBLE);
-        ivs81ayes.setVisibility(View.INVISIBLE);
-        ivs82ayes.setVisibility(View.INVISIBLE);
-        ivs83ayes.setVisibility(View.INVISIBLE);
+        ivs79ayes.setVisibility(View.INVISIBLE);
+        ivs80ayes.setVisibility(View.INVISIBLE);
+        //ivs83ayes.setVisibility(View.INVISIBLE);
         //
         ivs77byes.setVisibility(View.INVISIBLE);
         ivs78byes.setVisibility(View.INVISIBLE);
-        ivs81byes.setVisibility(View.INVISIBLE);
-        ivs82byes.setVisibility(View.INVISIBLE);
-        ivs83byes.setVisibility(View.INVISIBLE);
+        ivs79byes.setVisibility(View.INVISIBLE);
+        ivs80byes.setVisibility(View.INVISIBLE);
+        //ivs83byes.setVisibility(View.INVISIBLE);
     }
-
+    private String hex2Dex(String temp)
+    {
+        String binaryStr="";
+        if(temp.length()==2)
+        {
+            binaryStr = toBinaryString(temp.substring(0,1));
+        }
+        return  binaryStr;
+    }
+    public static String toBinaryString(String hex) {
+        String binary="";
+        switch (hex)
+        {
+            case "0":
+                binary="0000";
+                break;
+            case "1":
+                binary="0001";
+                break;
+            case "2":
+                binary="0010";
+                break;
+            case "3":
+                binary="0011";
+                break;
+            case "4":
+                binary="0100";
+                break;
+            case "5":
+                binary="0101";
+                break;
+            case "6":
+                binary="0110";
+                break;
+            case "7":
+                binary="0111";
+                break;
+            case "8":
+                binary="1000";
+                break;
+            case "9":
+                binary="1001";
+                break;
+            case "A":
+                binary="1010";
+                break;
+            case "B":
+                binary="1011";
+                break;
+            case "C":
+                binary="1100";
+                break;
+            case "D":
+                binary="1101";
+                break;
+            case "E":
+                binary="1110";
+                break;
+            case "F":
+                binary="1111";
+                break;
+        }
+        return binary;
+    }
     private void processMessage(String messageRev) {
         String dest = "";
         if (messageRev != null) {
             Pattern p = Pattern.compile("\\s*|\t|\r|\n");
             Matcher m = p.matcher(messageRev);
             dest = m.replaceAll("");
+
+            int len=dest.length();
+            if(len%2==0)
+            {
+                int n=len/2;
+                String []str=new String[n];
+                //String temp=dest;
+                for(int i=0;i<n;i++)
+                {
+                    str[i]=dest.substring(2*i, 2*i+2);
+                    //dest=temp;
+                }
+                if(n>19 /*&& str[0]=="FE"&& str[1]=="01"*/)
+                {
+                    String temp=hex2Dex(str[18]);
+                    textDemotest.setText(temp);
+
+                    char[] ar = temp.toCharArray();
+                    if(ar[0]=='1')
+                    {
+                        ivs77ayes.setVisibility(View.VISIBLE);
+                        ivs77ano.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                    {
+                        ivs77ayes.setVisibility(View.INVISIBLE);
+                        ivs77ano.setVisibility(View.VISIBLE);
+                    }
+
+                    if(ar[1]=='1')
+                    {
+                        ivs78ayes.setVisibility(View.VISIBLE);
+                        ivs78ano.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                    {
+                        ivs78ayes.setVisibility(View.INVISIBLE);
+                        ivs78ano.setVisibility(View.VISIBLE);
+                    }
+                    if(ar[2]=='1')
+                    {
+                        ivs79ayes.setVisibility(View.VISIBLE);
+                        ivs79ano.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                    {
+                        ivs79ayes.setVisibility(View.INVISIBLE);
+                        ivs79ano.setVisibility(View.VISIBLE);
+                    }
+                    if(ar[3]=='1')
+                    {
+                        ivs80ayes.setVisibility(View.VISIBLE);
+                        ivs80ano.setVisibility(View.INVISIBLE);
+                    }
+                    else
+                    {
+                        ivs80ayes.setVisibility(View.INVISIBLE);
+                        ivs80ano.setVisibility(View.VISIBLE);
+                    }
+                    //textlfPull.setText("    "+hex2Dex(str[2],str[3],str[4],str[5])+"    ");
+                    //textrhPull.setText( "    "+hex2Dex(str[6],str[7],str[8],str[9])+"    ");
+                    //textlockA.setText("    "+ hex2Dex(str[10],str[11],str[12],str[13])+"    ");
+                    //textlockB.setText("    "+ hex2Dex(str[14],str[15],str[16],str[17])+"    ");
+                }
+            }
         }
         switch (dest) {
             //S77A
@@ -203,31 +330,22 @@ public class FuncDITest extends Activity {
                 ivs78ano.setVisibility(View.VISIBLE);
                 break;
             //S81A
-            case "81ay":
-                ivs81ayes.setVisibility(View.VISIBLE);
-                ivs81ano.setVisibility(View.INVISIBLE);
+            case "79ay":
+                ivs79ayes.setVisibility(View.VISIBLE);
+                ivs79ano.setVisibility(View.INVISIBLE);
                 break;
-            case "81an":
-                ivs81ayes.setVisibility(View.INVISIBLE);
-                ivs81ano.setVisibility(View.VISIBLE);
+            case "79an":
+                ivs79ayes.setVisibility(View.INVISIBLE);
+                ivs79ano.setVisibility(View.VISIBLE);
                 break;
             //S82A
-            case "82ay":
-                ivs82ayes.setVisibility(View.VISIBLE);
-                ivs82ano.setVisibility(View.INVISIBLE);
+            case "80ay":
+                ivs80ayes.setVisibility(View.VISIBLE);
+                ivs80ano.setVisibility(View.INVISIBLE);
                 break;
-            case "82an":
-                ivs82ayes.setVisibility(View.INVISIBLE);
-                ivs82ano.setVisibility(View.VISIBLE);
-                break;
-            //S83A
-            case "83ay":
-                ivs83ayes.setVisibility(View.VISIBLE);
-                ivs83ano.setVisibility(View.INVISIBLE);
-                break;
-            case "83an":
-                ivs83ayes.setVisibility(View.INVISIBLE);
-                ivs83ano.setVisibility(View.VISIBLE);
+            case "80an":
+                ivs80ayes.setVisibility(View.INVISIBLE);
+                ivs80ano.setVisibility(View.VISIBLE);
                 break;
 
             //超起B
@@ -250,31 +368,22 @@ public class FuncDITest extends Activity {
                 ivs78bno.setVisibility(View.VISIBLE);
                 break;
             //S81B
-            case "81by":
-                ivs81byes.setVisibility(View.VISIBLE);
-                ivs81bno.setVisibility(View.INVISIBLE);
+            case "79by":
+                ivs79byes.setVisibility(View.VISIBLE);
+                ivs79bno.setVisibility(View.INVISIBLE);
                 break;
-            case "81bn":
-                ivs81byes.setVisibility(View.INVISIBLE);
-                ivs81bno.setVisibility(View.VISIBLE);
+            case "79bn":
+                ivs79byes.setVisibility(View.INVISIBLE);
+                ivs79bno.setVisibility(View.VISIBLE);
                 break;
             //S82B
-            case "82by":
-                ivs82byes.setVisibility(View.VISIBLE);
-                ivs82bno.setVisibility(View.INVISIBLE);
+            case "80by":
+                ivs80byes.setVisibility(View.VISIBLE);
+                ivs80bno.setVisibility(View.INVISIBLE);
                 break;
-            case "82bn":
-                ivs82byes.setVisibility(View.INVISIBLE);
-                ivs82bno.setVisibility(View.VISIBLE);
-                break;
-            //S83B
-            case "83by":
-                ivs83byes.setVisibility(View.VISIBLE);
-                ivs83bno.setVisibility(View.INVISIBLE);
-                break;
-            case "83bn":
-                ivs83byes.setVisibility(View.INVISIBLE);
-                ivs83bno.setVisibility(View.VISIBLE);
+            case "80bn":
+                ivs80byes.setVisibility(View.INVISIBLE);
+                ivs80bno.setVisibility(View.VISIBLE);
                 break;
         }
 

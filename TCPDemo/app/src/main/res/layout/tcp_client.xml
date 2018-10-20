@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="5"
+    android:weightSum="6"
     >
 
     <LinearLayout
@@ -38,6 +38,7 @@
                 android:layout_weight="1"
                 android:text="80"/>
         </LinearLayout>
+        <!--
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -59,51 +60,55 @@
                 android:text="随机生成"
                 android:id="@+id/btn_tcpClientRandomID"/>
         </LinearLayout>
-
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:id="@+id/btn_tcpClientConn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="连接" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="断开"
+                android:id="@+id/btn_tcpClientClose"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清除接收区"
+                android:id="@+id/btn_tcpCleanClientRecv"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="清除发送区"
+                android:id="@+id/btn_tcpCleanClientSend"/>
+        </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
 
-        <Button
-            android:id="@+id/btn_tcpClientConn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="连接" />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="断开"
-            android:id="@+id/btn_tcpClientClose"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="清除接收区"
-            android:id="@+id/btn_tcpCleanClientRecv"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="清除发送区"
-            android:id="@+id/btn_tcpCleanClientSend"/>
-    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
-        android:layout_weight="2">
+
+        android:layout_weight="3">
+
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="33dp"
             android:layout_weight="1"
             android:gravity="bottom"
             android:text="接收区：" />
         <TextView
             android:layout_width="match_parent"
-            android:layout_weight="5"
-            android:layout_height="0dp"
+            android:layout_weight="50"
+            android:layout_height="6dp"
             android:id="@+id/txt_ClientRcv"
             android:background="@android:color/holo_blue_light"
+            android:scrollbars="vertical"
+            android:maxLines="99999"
             />
     </LinearLayout>
 
@@ -117,12 +122,13 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="发送区：" />
-
         <TextView
             android:id="@+id/txt_ClientSend"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="7"
+            android:scrollbars="vertical"
+            android:maxLines="99999"
             android:background="@android:color/holo_purple" />
 
         <LinearLayout

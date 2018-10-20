@@ -31,7 +31,10 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="left"
+        android:weightSum="12"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -39,27 +42,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
 
-            android:text="超起卷扬速度："
+            android:text="所有开关复位："
+            android:layout_weight="1"
             android:textColor="#ff0900"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/suspeed1"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="速度1" />
+            android:layout_weight="1"
+            android:text="复位" />
 
-        <Button
-            android:id="@+id/suspeed2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="速度2" />
-
-        <Button
-            android:id="@+id/suspeed3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="速度3" />
     </LinearLayout>
 
     <View
@@ -72,7 +66,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -93,13 +86,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
+                    android:weightSum="12"
                     android:visibility="visible">
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -107,38 +101,38 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起卷扬A："
+                            android:text="卷扬A："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suAroalup"
+                            android:id="@+id/Y28a1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
-
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="起" />
+                            android:text="起Y28a1" />
 
                         <Button
-                            android:id="@+id/suAroaldown"
+                            android:id="@+id/Y28b1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="落" />
+                            android:text="落Y28b1" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -146,36 +140,30 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起装置A："
+                            android:text="展开动作选择A："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suAopen"
+                            android:id="@+id/Y25a1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="展开" />
+                            android:text="Y25a1" />
 
-                        <Button
-                            android:id="@+id/suAclose"
-                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="收回" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -188,24 +176,167 @@
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suAjlstretch"
+                            android:id="@+id/Y40a1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="伸" />
+                            android:text="伸Y40a1" />
 
                         <Button
-                            android:id="@+id/suAjlretraction"
+                            android:id="@+id/Y40b1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="缩" />
+                            android:text="缩Y40b1" />
                     </LinearLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起变幅A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y24a1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y24a1" />
+
+                        <Button
+                            android:id="@+id/Y24b1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y24b1" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="张紧缸A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y39a1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y39a1" />
+
+                        <Button
+                            android:id="@+id/Y39b1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y39b1" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="盘绳缸浮动A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y43a1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y43a1" />
+
+                        <Button
+                            android:id="@+id/Y43b1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y43b1" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="盘绳缸A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y42a1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y42a1" />
+
+                        <Button
+                            android:id="@+id/Y42b1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y42b1" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
                 </LinearLayout>
                 <!--超起B-->
@@ -215,12 +346,12 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:visibility="visible">
-
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
+
                         android:orientation="horizontal">
 
                         <TextView
@@ -228,36 +359,39 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起卷扬B："
+                            android:text="卷扬A："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suBroalup"
+                            android:id="@+id/Y28a2"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="起" />
+                            android:text="起Y28a2" />
 
                         <Button
-                            android:id="@+id/suBroaldown"
+                            android:id="@+id/Y28b2"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="落" />
+                            android:text="落Y28b2" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -265,36 +399,29 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起装置B："
+                            android:text="展开动作选择A："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suBopen"
+                            android:id="@+id/Y25a2"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="展开" />
-
-                        <Button
-                            android:id="@+id/suBclose"
-                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="收回" />
+                            android:text="Y25a2" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -302,30 +429,174 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="棘轮锁止油缸B："
+                            android:text="棘轮锁止油缸A："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suBjlstretch"
+                            android:id="@+id/Y40a2"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="伸" />
+                            android:text="伸Y40a2" />
 
                         <Button
-                            android:id="@+id/suBjlretraction"
+                            android:id="@+id/Y40b2"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="缩" />
+                            android:text="缩Y40b2" />
                     </LinearLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="超起变幅A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y24a2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y24a2" />
+
+                        <Button
+                            android:id="@+id/Y24b2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y24b2" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="张紧缸A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y39a2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y39a2" />
+
+                        <Button
+                            android:id="@+id/Y39b2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y39b2" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="盘绳缸浮动A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y43a2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y43a2" />
+
+                        <Button
+                            android:id="@+id/Y43b2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y43b2" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="盘绳缸A："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y42a2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="起Y42a2" />
+
+                        <Button
+                            android:id="@+id/Y42b2"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="落Y42b2" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+
                 </LinearLayout>
                 <!--超起其他动作-->
                 <LinearLayout
@@ -339,7 +610,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -347,36 +618,56 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起变幅："
+                            android:text="卷扬浮动："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suRangeUp"
+                            android:id="@+id/Y44a1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="起" />
-
-                        <Button
-                            android:id="@+id/suRangeDown"
-                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="落" />
+                            android:text="动作Y44a1/2" />
                     </LinearLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
+                        android:background="#f43ad3" />
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left"
+                        android:layout_marginTop="2dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:text="卷扬制动："
+                            android:textColor="#ff0900"
+                            android:textSize="20sp" />
+
+                        <Button
+                            android:id="@+id/Y50c1"
+                            style="@android:style/Widget.DeviceDefault.Button.Toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="动作Y50c1" />
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="4px"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -384,29 +675,29 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起卷扬浮动："
+                            android:text="锁止缸机械锁止："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suRoalFloat"
+                            android:id="@+id/Y41a1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="动作" />
+                            android:text="动作Y41a1" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -414,29 +705,27 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="棘轮锁止油缸选择："
+                            android:text="卷扬压力选择："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/sujlLockChoose"
+                            android:id="@+id/Y29a1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="动作" />
+                            android:text="动作Y29a1" />
                     </LinearLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
-
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -444,29 +733,27 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起锁止油缸压力："
+                            android:text="Y45a1："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suLockPress"
+                            android:id="@+id/Y45a1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="动作" />
+                            android:text="动作Y45a1" />
                     </LinearLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
-
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="left"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:orientation="horizontal">
 
                         <TextView
@@ -474,22 +761,21 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="1"
-                            android:text="超起卷扬落压力："
+                            android:text="Y45b1："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
                         <Button
-                            android:id="@+id/suRoalDownPress"
+                            android:id="@+id/Y45b1"
                             style="@android:style/Widget.DeviceDefault.Button.Toggle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="动作" />
+                            android:text="动作Y45b1" />
                     </LinearLayout>
-
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="4px"
-                        android:layout_marginTop="5dp"
+                        android:layout_marginTop="2dp"
                         android:background="#f43ad3" />
                 </LinearLayout>
             </FrameLayout>

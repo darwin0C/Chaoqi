@@ -5,6 +5,8 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,6 +17,14 @@
         android:text="超起电气检测系统2"
         android:textColor="#0000ff"
         android:textSize="25sp" />
+    <TextView
+        android:id="@+id/textDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:text="超起电气检测系统"
+        android:textColor="#0000ff" />
 
     <View
         android:layout_width="match_parent"
@@ -60,7 +70,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:text="A棘轮锁止油缸锁止："
+                            android:text="A棘轮锁止油缸限位："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
                     </LinearLayout>
@@ -153,7 +163,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
 
-                            android:text="A棘轮锁止油缸限位："
+                            android:text="A棘轮锁止油缸锁止："
                             android:textColor="#ff0900"
                             android:textSize="20sp" />
 
@@ -177,7 +187,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:text="S81A:"
+                                android:text="S79A:"
                                 android:textColor="#ff0900"
                                 android:textSize="20sp" />
 
@@ -207,7 +217,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:text="S82A:"
+                                android:text="S80A:"
                                 android:textColor="#ff0900"
                                 android:textSize="20sp" />
 
@@ -232,67 +242,6 @@
                         android:layout_marginTop="10dp"
                         android:background="#f43ad3" />
 
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:gravity="left"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-
-                            android:text="A棘轮锁止小油缸限位："
-                            android:textColor="#ff0900"
-                            android:textSize="20sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="left"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="S83A:"
-                                android:textColor="#ff0900"
-                                android:textSize="20sp" />
-
-                            <ImageView
-                                android:id="@+id/s83ayes"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:src="@mipmap/ic_yes" />
-
-                            <ImageView
-                                android:id="@+id/s83ano"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:src="@mipmap/ic_no" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="5px"
-                        android:layout_marginTop="10dp"
-                        android:background="#f43ad3" />
 
                 </LinearLayout>
 
@@ -427,7 +376,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:text="S81B:"
+                                android:text="S79B:"
                                 android:textColor="#ff0900"
                                 android:textSize="20sp" />
 
@@ -455,7 +404,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:text="S82B:"
+                                android:text="S80B:"
                                 android:textColor="#ff0900"
                                 android:textSize="20sp" />
 
@@ -471,68 +420,6 @@
                                 android:layout_height="wrap_content"
                                 android:src="@mipmap/ic_no" />
                         </LinearLayout>
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="5px"
-                        android:layout_marginTop="10dp"
-                        android:background="#f43ad3" />
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:gravity="left"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-
-                            android:text="B棘轮锁止小油缸限位："
-                            android:textColor="#ff0900"
-                            android:textSize="20sp" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="left"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="fill_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="S83B:"
-                                android:textColor="#ff0900"
-                                android:textSize="20sp" />
-
-                            <ImageView
-                                android:id="@+id/s83byes"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:src="@mipmap/ic_yes" />
-
-                            <ImageView
-                                android:id="@+id/s83bno"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-
-                                android:src="@mipmap/ic_no" />
-                        </LinearLayout>
-
                     </LinearLayout>
 
                     <View
